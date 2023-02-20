@@ -6,7 +6,7 @@ const { ExpirationPlugin } = require('workbox-expiration');
 const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
 precacheAndRoute(self.__WB_MANIFEST);
-
+// here we are saying we want a 'cache first' approach to make sure the text editor will still function if offline
 const pageCache = new CacheFirst({
   cacheName: 'page-cache',
   plugins: [

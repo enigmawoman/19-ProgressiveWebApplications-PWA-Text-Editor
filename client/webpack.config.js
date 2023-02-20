@@ -45,8 +45,11 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
+            //logos will come from this file in the src folder
             src: path.resolve('src/images/logo.png'),
+            //produce these size images
             sizes: [96, 128, 192, 256, 384, 512],
+            // this is the destination path for the images
             destination: path.join('assets', 'icons'),
           },
         ],
@@ -56,14 +59,18 @@ module.exports = () => {
     module: {
       rules: [
         {
+          // check for .css files using regex
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
         {
+          // check .js or .mjs files
           test: /\.m?js$/,
+          //exclude the node_modules folder
           exclude: /node_modules/,
           // We use babel-loader in order to use ES6.
           use: {
+            // babel is the transpiler we'll use to transpile our code
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
